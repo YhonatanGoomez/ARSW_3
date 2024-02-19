@@ -12,14 +12,14 @@ import java.util.Queue;
  * @author hcadavid
  */
 public class Consumer extends Thread{
-    
+
     private Queue<Integer> queue;
-    
-    
+
+
     public Consumer(Queue<Integer> queue){
-        this.queue=queue;        
+        this.queue=queue;
     }
-    
+
     @Override
     public void run() {
         while (true) {
@@ -27,12 +27,12 @@ public class Consumer extends Thread{
             if (queue.size() > 0) {
                 int elem=queue.poll();
                 System.out.println("Consumer consumes "+elem);
-                    try {
-                        Thread.sleep(1200); // dormimos el hilo durante 1200 milisegundos
-                    }
-                    catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
+                try {
+                    Thread.sleep(1200); // dormimos el hilo durante 1200 milisegundos
+                }
+                catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
             }
         }
     }
